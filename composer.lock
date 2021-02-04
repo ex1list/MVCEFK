@@ -1,0 +1,337 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "ed111a5d9de1cdcef42ae9364c627cf3",
+    "packages": [
+        {
+            "name": "adbario/php-dot-notation",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adbario/php-dot-notation.git",
+                "reference": "84da820f12be2a504c9612757ffb7850eceb34fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adbario/php-dot-notation/zipball/84da820f12be2a504c9612757ffb7850eceb34fe",
+                "reference": "84da820f12be2a504c9612757ffb7850eceb34fe",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4|^5|^6|^7|^8",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Adbar\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Riku Särkinen",
+                    "email": "riku@adbar.io"
+                }
+            ],
+            "description": "PHP dot notation access to arrays",
+            "homepage": "https://github.com/adbario/php-dot-notation",
+            "keywords": [
+                "ArrayAccess",
+                "dotnotation"
+            ],
+            "support": {
+                "issues": "https://github.com/adbario/php-dot-notation/issues",
+                "source": "https://github.com/adbario/php-dot-notation/tree/2.x"
+            },
+            "time": "2020-04-04T01:24:44+00:00"
+        },
+        {
+            "name": "it-for-free/array_column",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/it-for-free/array_column.git",
+                "reference": "39bea7424d7ca846d094aa6811d8156bf807263e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/it-for-free/array_column/zipball/39bea7424d7ca846d094aa6811d8156bf807263e",
+                "reference": "39bea7424d7ca846d094aa6811d8156bf807263e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "0.8.*",
+                "phpunit/phpunit": "~4.5",
+                "satooshi/php-coveralls": "0.6.*",
+                "squizlabs/php_codesniffer": "~2.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/array_column.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Ramsey",
+                    "homepage": "http://benramsey.com"
+                }
+            ],
+            "description": "Replacement for ramsey's array_column package: array_column() for projects using PHP earlier than version 5.5.",
+            "homepage": "https://github.com/ramsey/array_column",
+            "keywords": [
+                "array",
+                "array_column",
+                "column",
+                "replacement for ramsey array_column"
+            ],
+            "support": {
+                "issues": "https://github.com/it-for-free/array_column/issues",
+                "source": "https://github.com/it-for-free/array_column"
+            },
+            "time": "2019-02-22T13:53:49+00:00"
+        },
+        {
+            "name": "it-for-free/php-simple-assets",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/it-for-free/php-simple-assets.git",
+                "reference": "93cce82c87fd2ceea1cd449a84fabe645374819e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/it-for-free/php-simple-assets/zipball/93cce82c87fd2ceea1cd449a84fabe645374819e",
+                "reference": "93cce82c87fd2ceea1cd449a84fabe645374819e",
+                "shasum": ""
+            },
+            "require": {
+                "it-for-free/rusphp": "v2.*",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1",
+                "codeception/module-asserts": "^1.0.0",
+                "codeception/module-filesystem": "^1.0",
+                "codeception/module-phpbrowser": "^1.0.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ItForFree\\SimpleAsset\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "simple php asset management: copy assets (js, css etc) from vendor, support dependencies",
+            "homepage": "http://fkn.ktu10.com/?q=node/10559",
+            "keywords": [
+                "assets",
+                "assets manager",
+                "clone",
+                "copy",
+                "copy assets js css etc from vendor support dependencies",
+                "like in yii yii2",
+                "php",
+                "simple php asset management",
+                "source map",
+                "vendor"
+            ],
+            "support": {
+                "source": "https://github.com/it-for-free/php-simple-assets/tree/master",
+                "issues": "https://github.com/it-for-free/php-simple-assets/issues"
+            },
+            "time": "2021-01-26T10:07:51+00:00"
+        },
+        {
+            "name": "it-for-free/rusphp",
+            "version": "v2.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/it-for-free/rusphp.git",
+                "reference": "b8f7705fba74d355bec1b992cbf09ef182402d44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/it-for-free/rusphp/zipball/b8f7705fba74d355bec1b992cbf09ef182402d44",
+                "reference": "b8f7705fba74d355bec1b992cbf09ef182402d44",
+                "shasum": ""
+            },
+            "require": {
+                "adbario/php-dot-notation": "*",
+                "it-for-free/array_column": "*",
+                "jmoati/mimey": "3.0.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.0.0",
+                "codeception/module-asserts": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ItForFree\\rusphp\\": "src"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Universal PHP library for different perposis",
+            "homepage": "http://fkn.ktu10.com/?q=node/8592",
+            "keywords": [
+                "archive",
+                "array",
+                "array filter only elements",
+                "breadcrumbs",
+                "codeception log echo write into console addon",
+                "create html file with source code of all project files for documentation",
+                "email verify",
+                "html table",
+                "image crop resize on the fly",
+                "memory",
+                "phone number info class inner short",
+                "php",
+                "php universal package",
+                "ram",
+                "regexp",
+                "security token with timestamp",
+                "ssh",
+                "string filter html tags and url protocols",
+                "time interval for wait sleep between api requests",
+                "ui",
+                "yandex maps goole maps center zoom for point coords set"
+            ],
+            "support": {
+                "source": "https://github.com/it-for-free/rusphp/tree/v2.1.9",
+                "issues": "https://github.com/it-for-free/rusphp/issues"
+            },
+            "time": "2021-01-18T15:00:36+00:00"
+        },
+        {
+            "name": "it-for-free/simple-mvc",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/it-for-free/SimpleMVC.git",
+                "reference": "28d7e62015cbe5d607d457984097d8df495a30bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/it-for-free/SimpleMVC/zipball/28d7e62015cbe5d607d457984097d8df495a30bc",
+                "reference": "28d7e62015cbe5d607d457984097d8df495a30bc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo_mysql": "*",
+                "it-for-free/php-simple-assets": "dev-master",
+                "it-for-free/rusphp": "v2.*",
+                "php": ">=7.2"
+            },
+            "default-branch": true,
+            "type": "cms",
+            "autoload": {
+                "psr-4": {
+                    "ItForFree\\SimpleMVC\\": "src"
+                }
+            },
+            "description": "Пример движка MVC",
+            "homepage": "http://fkn.ktu10.com/?q=forum/133",
+            "keywords": [
+                "framework",
+                "itforfree",
+                "mvc",
+                "php",
+                "simple"
+            ],
+            "support": {
+                "source": "https://github.com/it-for-free/SimpleMVC/tree/master",
+                "issues": "https://github.com/it-for-free/SimpleMVC/issues"
+            },
+            "time": "2021-02-01T12:38:46+00:00"
+        },
+        {
+            "name": "jmoati/mimey",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jmoati/mimey.git",
+                "reference": "0551e7a4fdbeb970abe78eccdc3fd3712a6daa4a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jmoati/mimey/zipball/0551e7a4fdbeb970abe78eccdc3fd3712a6daa4a",
+                "reference": "0551e7a4fdbeb970abe78eccdc3fd3712a6daa4a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.17",
+                "phpstan/phpstan": "^0.12.64",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mimey\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                },
+                {
+                    "name": "Jacques Moati",
+                    "email": "jacques@moati.net"
+                }
+            ],
+            "description": "PHP package for converting file extensions to MIME types and vice versa.",
+            "support": {
+                "source": "https://github.com/Jmoati/mimey/tree/3.0.1"
+            },
+            "time": "2021-01-11T07:44:57+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "it-for-free/simple-mvc": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

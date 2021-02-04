@@ -1,0 +1,13 @@
+/nbproject/*
+/vendor/*
+
+/uploads/*
+#кроме конкретного файла:
+!uploads/.gitkeep
+
+
+/web/assets/*
+!/web/assets/.gitkeep
+
+#игнорируем локальные конфигурационные файлы
+/application/config/*-local.php
