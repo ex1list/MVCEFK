@@ -1,7 +1,8 @@
 <?php
 namespace application\controllers\admin;
-use application\models\Notes;
+use application\models\Notes as Notes;
 use ItForFree\SimpleMVC\Config;
+use \application\models\ExampleUser as Adminusers;
 
 /* 
  *   Class-controller notes
@@ -10,26 +11,28 @@ use ItForFree\SimpleMVC\Config;
  */
 
 class NotesController extends \ItForFree\SimpleMVC\mvc\Controller
-{
-    
+{  
     public $layoutPath = 'admin-main.php';
-    
-    
     public function indexAction()
     {
         $Notes = new Notes();
-
         $noteId = $_GET['id'] ?? null;
-        
         if ($noteId) { // если указан конктреный пользователь
             $viewNotes = $Notes->getById($_GET['id']);
             $this->view->addVar('viewNotes', $viewNotes);
             $this->view->render('note/view-item.php');
-        } else { // выводим полный список
-            
+        } else { // выводим полный список         
+            $Notes = new Notes();
             $notes = $Notes->getList()['results'];
-            $this->view->addVar('notes', $notes);
+            $this->view->addVar('notes', $notes); 
+            $Adminusers = new Adminusers();
+            $users = $Adminusers->getList()['results'];
+            $this->view->addVar('users', $users);     
+            //var_dump($notes);die();
             $this->view->render('note/index.php');
+            
+                 
+            
         }
     }
     
@@ -51,10 +54,16 @@ class NotesController extends \ItForFree\SimpleMVC\mvc\Controller
             }
         }
         else {
-            $addNotesTitle = "Добавление новой заметки";
-            $this->view->addVar('addNotesTitle', $addNotesTitle);
-            
+             // var_dump($_POST);die();
+            $addNotesTitle = "Добавление нового сотрудника";
+           
+            $Adminusers = new Adminusers();
+            $users = $Adminusers->getList()['results'];
+            $this->view->addVar('users', $users);         
+            $this->view->addVar('addNotesTitle', $addNotesTitle);  
             $this->view->render('note/add.php');
+            
+ 
         }
     }
     
@@ -72,7 +81,7 @@ class NotesController extends \ItForFree\SimpleMVC\mvc\Controller
                 $Notes = new Notes();
                 $newNotes = $Notes->loadFromArray($_POST);
                 $newNotes->update();
-                $this->redirect($Url::link("admin/notes/index&id=$id"));
+                $this->redirect($Url::link("admin/notes/index"));
             } 
             elseif (!empty($_POST['cancel'])) {
                 $this->redirect($Url::link("admin/notes/index&id=$id"));
@@ -81,12 +90,9 @@ class NotesController extends \ItForFree\SimpleMVC\mvc\Controller
         else {
             $Notes = new Notes();
             $viewNotes = $Notes->getById($id);
-            
-            $editNotesTitle = "Редактирование заметки";
-            
+            $editNotesTitle = "Редактирование отпуска";         
             $this->view->addVar('viewNotes', $viewNotes);
-            $this->view->addVar('editNotesTitle', $editNotesTitle);
-            
+            $this->view->addVar('editNotesTitle', $editNotesTitle); 
             $this->view->render('note/edit.php');   
         }
         
@@ -113,15 +119,12 @@ class NotesController extends \ItForFree\SimpleMVC\mvc\Controller
                 $this->redirect($Url::link("admin/notes/edit&id=$id"));
             }
         }
-        else {
-            
+        else {   
             $Notes = new Notes();
             $deletedNotes = $Notes->getById($id);
-            $deleteNotesTitle = "Удалить заметку?";
-            
+            $deleteNotesTitle = "Удалить отпуск?";    
             $this->view->addVar('deleteNotesTitle', $deleteNotesTitle);
             $this->view->addVar('deletedNotes', $deletedNotes);
-            
             $this->view->render('note/delete.php');
         }
     }

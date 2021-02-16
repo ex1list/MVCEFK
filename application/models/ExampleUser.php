@@ -112,8 +112,7 @@ class ExampleUser extends \ItForFree\SimpleMVC\User
         $sql = "SELECT role FROM users WHERE login = :login";
         $st = $this->pdo->prepare($sql);
         $st->bindValue( ":login", $userName, \PDO::PARAM_STR);
-        $st->execute();
-        
+        $st->execute();  
         $siteAuthData = $st->fetch();
         if (isset($siteAuthData['role'])) {
             return $siteAuthData['role'];
@@ -126,8 +125,7 @@ class ExampleUser extends \ItForFree\SimpleMVC\User
         $sql = "INSERT INTO $this->tableName (timestamp, login, salt, pass, role, email) VALUES (:timestamp, :login, :salt, :pass, :role, :email)"; 
         $st = $this->pdo->prepare ( $sql );
         $st->bindValue( ":timestamp", (new \DateTime('NOW'))->format('Y-m-d H:i:s'), \PDO::PARAM_STMT);
-        $st->bindValue( ":login", $this->login, \PDO::PARAM_STR );
-        
+        $st->bindValue( ":login", $this->login, \PDO::PARAM_STR );    
         //Хеширование пароля
         $this->salt = rand(0,1000000);
         $st->bindValue( ":salt", $this->salt, \PDO::PARAM_STR );
@@ -137,7 +135,6 @@ class ExampleUser extends \ItForFree\SimpleMVC\User
         $hashPass = password_hash($this->pass, PASSWORD_BCRYPT);
 //        \DebugPrinter::debug($hashPass);
         $st->bindValue( ":pass", $hashPass, \PDO::PARAM_STR );
-        
         $st->bindValue( ":role", $this->role, \PDO::PARAM_STR );
         $st->bindValue( ":email", $this->email, \PDO::PARAM_STR );
         $st->execute();

@@ -20,10 +20,42 @@ $User = Config::getObject('core.user.class');
 <h2><?= $editNotesTitle ?></h2>
 
 <form id="editNote" method="post" action="<?= $Url::link("admin/notes/edit&id=" . $_GET['id'])?>">
-    <h5>Note title</h5> 
-    <input type="text" name="title" placeholder="name note" value=<?= $viewNotes->title?>><br>
-    <h5>Note content</h5>
-    <textarea type="description" name="content" placeholred="контент"   value=><?= $viewNotes->content ?></textarea><br>
+
+
+       <div class="form-group">
+        <label for="content">Cотрудник </label><br>
+        <input type="input" name="user_id" placeholred="описание заметки"  value="<?php echo htmlspecialchars($viewNotes->user_id);?>">
+    </div>
+     
+     
+    <div class="form-group">
+        <label for="content">Отпуск c </label><br>
+        <input type="date" name="SDATE" placeholred="описание заметки"  value=></textarea>
+    </div>
+   <div class="form-group">
+        <label for="content">Отпуск по</label><br>
+        <input type="date" name="BDate" placeholred="описание заметки"  value=></textarea>
+    </div>
+    <div class="form-group">
+        <label for="content">Комментарий</label><br>
+        <textarea type="description" name="content" placeholred="описание заметки"  value=></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Закрепить</label><br>
+        <textarea type="checkbox" name="check" placeholred="описание заметки"  value=></textarea>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
 <input type="submit" name="saveChanges" value="Сохранить">

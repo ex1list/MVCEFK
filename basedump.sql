@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `notes`;
 CREATE TABLE `notes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `publicationDate` date NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
   `content` mediumtext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

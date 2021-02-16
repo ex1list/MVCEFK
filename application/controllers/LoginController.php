@@ -26,12 +26,15 @@ class LoginController extends \ItForFree\SimpleMVC\mvc\Controller
      */
     public function loginAction()
     {
+//        print_r($_POST);
+//        die();
         if (!empty($_POST)) {
             $login = $_POST['userName'];
             $pass = $_POST['password'];
             $User = Config::getObject('core.user.class');
-            if($User->login($login, $pass)) {
+            if( $User->login($login, $pass)) {
                 $this->redirect(Url::link("homepage/index"));
+                
             }
             else {
                 $this->redirect(Url::link("login/login&auth=deny"));

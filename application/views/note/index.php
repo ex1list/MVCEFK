@@ -3,34 +3,53 @@ use ItForFree\SimpleMVC\Config;
 
 $User = Config::getObject('core.user.class');
 ?>
-<?php include('includes/admin-notes-nav.php'); ?>
+<?php include('includes/admin-notes-nav.php'); //foreach ($users as $user){var_dump($user->login); } die();?>
 
-<h2>List notes</h2>
+<h2>List otpuskov</h2>
 
 <?php if (!empty($notes)): ?>
+
+
+
 <table class="table">
     <thead>
     <tr>
-      <th scope="col">Оглавление</th>
-      <th scope="col">Посвящается</th>
-      <th scope="col">Дата</th>
+      <th scope="col">id</th>
+      <th scope="col">Сотрудник</th>
+      <th scope="col">Отпуск с</th>
+      <th scope="col">Отпуск по</th>
+      <th scope="col">Комментарий</th>
+      <th scope="col">Закрепить отпуск</th>
       <th scope="col"></th>
     </tr>
      </thead>
     <tbody>
-    <?php foreach($notes as $note): ?>
-    <tr>
-        <td> <?= "<a href=" . \ItForFree\SimpleMVC\Url::link('admin/notes/index&id=' 
-		. $note->id . ">{$note->title}</a>" ) ?> </td>
-        <td> <?= $note->content ?> </td>
-        <td> <?= $note->publicationDate ?> </td>
-    </tr>
-    <?php endforeach; ?>
 
-    </tbody>
+    <?php foreach ($notes as $note) {   ?>
+       
+       
+    <tr>
+        <td> <?php echo $note->id; ?>  </td>  
+        <?php foreach ($users as $user) { 
+        if ( $note->user_id == $user->id) { ?> 
+        <td> <?php echo $user->login; ?> </td>
+        <?php } } ?>
+         
+        
+        <td> <?php echo $note->SDATE; ?>  </td>
+        <td> <?php echo $note->BDate; ?>  </td> 
+        <td> <?php echo $note->content; ?>  </td>
+        <td> <?php echo $note->Checked; ?>  </td>
+                  <td>  <?= $User->returnIfAllowed("admin/adminusers/edit", 
+                    "<a href=" . \ItForFree\SimpleMVC\Url::link("admin/notes/edit&id=". $note->id) 
+                    . ">[Редактировать]</a>");?></td>
+    </tr>      
+
+    <?php } ?>
+
 </table>
 
 <?php else:?>
-    <p> Список заметок пуст</p>
+    <p> Отпуска не выдали</p>
 <?php endif; ?>
 
