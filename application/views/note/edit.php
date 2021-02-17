@@ -42,8 +42,12 @@ $User = Config::getObject('core.user.class');
     </div>
 
     <div class="form-group">
-        <label for="content">Закрепить</label><br>
-        <textarea type="checkbox" name="check" placeholred="описание заметки"  value=></textarea>
+        <label for="Checked">Закрепить отпуск</label>  
+        <?php if (  $viewNotes ->Checked == 1 ) { ?>
+                 <input type=checkbox name="Checked" value="1" checked >     
+        <?php } else { ?>
+               <input type=checkbox name="Checked" value="0" >
+        <?php } ?>     
     </div>
 
 

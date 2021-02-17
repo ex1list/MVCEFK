@@ -5,7 +5,7 @@ $User = Config::getObject('core.user.class');
 ?>
 <?php include('includes/admin-notes-nav.php'); //foreach ($users as $user){var_dump($user->login); } die();?>
 
-<h2>List otpuskov</h2>
+<h2>Лист отпусков</h2>
 
 <?php if (!empty($notes)): ?>
 
@@ -34,12 +34,24 @@ $User = Config::getObject('core.user.class');
         if ( $note->user_id == $user->id) { ?> 
         <td> <?php echo $user->login; ?> </td>
         <?php } } ?>
-         
-        
         <td> <?php echo $note->SDATE; ?>  </td>
         <td> <?php echo $note->BDate; ?>  </td> 
         <td> <?php echo $note->content; ?>  </td>
-        <td> <?php echo $note->Checked; ?>  </td>
+        <td>
+        
+        <div class="form-group">
+        <label for="Checked">Подтвержден отпуск</label>  
+        <?php if ( $note->Checked == 1 ) { ?>
+                 <input type=checkbox name="Active" value="1" checked >     
+        <?php } else { ?>
+               <input type=checkbox name="Active" value="0" >
+        <?php } ?>
+        
+        
+        
+         </td> 
+        
+        
                   <td>  <?= $User->returnIfAllowed("admin/adminusers/edit", 
                     "<a href=" . \ItForFree\SimpleMVC\Url::link("admin/notes/edit&id=". $note->id) 
                     . ">[Редактировать]</a>");?></td>
