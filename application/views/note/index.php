@@ -14,12 +14,13 @@ $User = Config::getObject('core.user.class');
 <table class="table">
     <thead>
     <tr>
-      <th scope="col">id</th>
+      <th scope="col">id otpuska</th>
       <th scope="col">Сотрудник</th>
       <th scope="col">Отпуск с</th>
       <th scope="col">Отпуск по</th>
       <th scope="col">Комментарий</th>
       <th scope="col">Закрепить отпуск</th>
+     
       <th scope="col"></th>
     </tr>
      </thead>
@@ -30,10 +31,12 @@ $User = Config::getObject('core.user.class');
        
     <tr>
         <td> <?php echo $note->id; ?>  </td>  
-        <?php foreach ($users as $user) { 
+        
+        <?php foreach ($users as $user) {  
         if ( $note->user_id == $user->id) { ?> 
         <td> <?php echo $user->login; ?> </td>
         <?php } } ?>
+        
         <td> <?php echo $note->SDATE; ?>  </td>
         <td> <?php echo $note->BDate; ?>  </td> 
         <td> <?php echo $note->content; ?>  </td>

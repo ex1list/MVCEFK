@@ -43,6 +43,7 @@ class AdminusersController extends \ItForFree\SimpleMVC\mvc\Controller
         if (!empty($_POST)) {
             if (!empty($_POST['saveNewUser'])) {
                 $Adminusers = new ExampleUser();
+                //var_dump($Adminusers); die();
                 $newAdminusers = $Adminusers->loadFromArray($_POST);
                 $newAdminusers->insert(); 
                 $this->redirect($Url::link("admin/adminusers/index"));

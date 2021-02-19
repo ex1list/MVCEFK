@@ -25,6 +25,31 @@ class Notes extends BaseExampleModel {
     public $Checked= null; 
     
     
+ public function IzloginaPoluchaemDannieUsera ($userlogin)  
+    {
+        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM users
+                WHERE login=:login"; 
+      
+        $st = $this->pdo->prepare($sql);
+        $st->bindValue( ":login", $userlogin, \PDO::PARAM_INT );
+        $st->execute();
+        $useridinnotes = $st->fetch();
+        //var_dump($useridinnotes['id']); die();
+        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM notes
+                WHERE  user_id=:useridinnotes"; 
+        $st = $this->pdo->prepare($sql);
+        $st->bindValue( ":useridinnotes",$useridinnotes['id'], \PDO::PARAM_INT );
+        $st->execute();
+        $useridinnotes = $st->fetch();
+        
+        
+        return  $useridinnotes;
+    }
+    
+    
+    
+    
+    
     public function insert()
     {
         $sql = "INSERT INTO $this->tableName (user_id, content, SDATE, BDate,Checked) VALUES (:user_id, :content,:SDATE,:BDate,:Checked)"; 

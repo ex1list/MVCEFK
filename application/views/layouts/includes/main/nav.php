@@ -25,9 +25,9 @@ $User = Config::getObject('core.user.class');
             <a class="nav-link" href="<?= Url::link("login/login") ?>">[Вход]</a>
         </li>
         <?php endif; ?>
-        <?php  if ($User->isAllowed("admin/adminusers/index")): ?>
+        <?php  if ($User->isAllowed("homepage/userindex")): ?>
         <li class="nav-item ">
-            <a class="nav-link" href="<?= Url::link("admin/adminusers/index") ?>"> Пользователи </a>
+            <a class="nav-link" href="<?= Url::link("homepage/userindex") ?>"> Мой отпуск и отпуска других сотрудников</a>
         </li>
         <?php endif; ?>
         
