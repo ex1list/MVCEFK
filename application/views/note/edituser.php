@@ -19,7 +19,7 @@ $User = Config::getObject('core.user.class');
 
 <h2><?= $editNotesTitle ?></h2>
 
-<form id="editNote" method="post" action="<?= $Url::link("admin/notes/edit&id=" . $_GET['id'])?>">
+<form id="editNote" method="post" action="<?= $Url::link("homepage/useredit&id=" . $_GET['id'])?>">
 
 
        <div class="form-group">
@@ -29,17 +29,21 @@ $User = Config::getObject('core.user.class');
         </input>
     </div>
      
-    
-
+     
     <div class="form-group">
-        <label for="Checked">Закрепить отпуск</label>  
-        <?php  if (  $viewNotes ->Checked == 1 ) { ?>
-                 <input type=checkbox name="Checked" value="1" checked >     
-        <?php } else { ?>
-               <input type=checkbox name="Checked" value="1" >
-               
-        <?php } ?>     
+        <label for="content">Отпуск c </label><br>
+        <input type="date" name="SDATE" placeholred="описание заметки"  value=></textarea>
     </div>
+   <div class="form-group">
+        <label for="content">Отпуск по</label><br>
+        <input type="date" name="BDate" placeholred="описание заметки"  value=></textarea>
+    </div>
+    <div class="form-group">
+        <label for="content">Комментарий</label><br>
+        <textarea type="description" name="content" placeholred="описание заметки"  value=></textarea>
+    </div>
+
+  
 
 
 

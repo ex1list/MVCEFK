@@ -25,23 +25,31 @@ class Notes extends BaseExampleModel {
     public $Checked= null; 
     
     
- public function IzloginaPoluchaemDannieUsera ($userlogin)  
+ public function IzloginaPoluchaemId ($userlogin)  
     {
+       
         $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM users
                 WHERE login=:login"; 
-      
+       
         $st = $this->pdo->prepare($sql);
-        $st->bindValue( ":login", $userlogin, \PDO::PARAM_INT );
-        $st->execute();
-        $useridinnotes = $st->fetch();
-        //var_dump($useridinnotes['id']); die();
-        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM notes
-                WHERE  user_id=:useridinnotes"; 
-        $st = $this->pdo->prepare($sql);
-        $st->bindValue( ":useridinnotes",$useridinnotes['id'], \PDO::PARAM_INT );
-        $st->execute();
-        $useridinnotes = $st->fetch();
         
+        $st->bindValue( ":login", $userlogin, \PDO::PARAM_STR );
+        $st->execute();
+        $userlogin = $st->fetch();
+         
+        return  $userlogin;
+    }      
+        
+    public function IzIdPoluchaemDannieOtpuska ($userlogin)  
+    {     
+        //var_dump($userlogin); die();
+        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM notes
+                WHERE  id=:useridinnotes"; 
+        $st = $this->pdo->prepare($sql);
+        $st->bindValue( ":useridinnotes",$userlogin['id'], \PDO::PARAM_INT );
+        $st->execute();
+        $useridinnotes = $st->fetch();
+        //var_dump($useridinnotes); die();
         
         return  $useridinnotes;
     }
@@ -65,7 +73,19 @@ class Notes extends BaseExampleModel {
     
     public function update()
     {
-        $sql = "UPDATE $this->tableName SET SDATE=:SDATE,BDate=:BDate, user_id=:user_id, content=:content,Checked:=Checked WHERE id = :id";  
+        //var_dump($_POST); die();
+        $sql = "UPDATE $this->tableName SET Checked=:Checked WHERE id = :id";  
+        $st = $this->pdo->prepare ( $sql );   
+        $st->bindValue( ":Checked", $this->Checked, \PDO::PARAM_STR );
+        $st->bindValue( ":id", $this->id, \PDO::PARAM_INT );
+        $st->execute();
+    }
+    
+    
+   public function userupdate()
+    {
+         //var_dump($_POST); die();
+        $sql = "UPDATE $this->tableName SET SDATE=:SDATE,BDate=:BDate, user_id=:user_id, content=:content,Checked=:Checked WHERE id = :id";  
         $st = $this->pdo->prepare ( $sql );   
         $st->bindValue( ":SDATE", $this->SDATE, \PDO::PARAM_STMT);
         $st->bindValue( ":BDate", $this->BDate, \PDO::PARAM_STMT);

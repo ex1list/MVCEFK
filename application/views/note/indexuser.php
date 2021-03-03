@@ -44,11 +44,10 @@ $User = Config::getObject('core.user.class');
         <td>
         
         <div class="form-group">
-       
         <?php if ( $note->Checked == 1 ) { ?>
-                 Утвержден     
+                  Подтвержден  
         <?php } else { ?>
-               Не утвержден
+                Не подтвержден
         <?php } ?>
         
         
@@ -57,8 +56,8 @@ $User = Config::getObject('core.user.class');
         
         
                   <td>  <?= $User->returnIfAllowed("admin/adminusers/edit", 
-                    "<a href=" . \ItForFree\SimpleMVC\Url::link("admin/notes/edit&id=". $note->id) 
-                    . ">[Утвердить/Не утвердить]</a>");?></td>
+                    "<a href=" . \ItForFree\SimpleMVC\Url::link("homepage/useredit&id=". $note->id) 
+                    . ">[Редактировать]</a>");?></td>
     </tr>      
 
     <?php } ?>
